@@ -1,0 +1,33 @@
+name: custom java build
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        run: |
+          git clone https://github.com/${{ github.repository }} /tmp/repo
+          mv /tmp/repo/* "${{ github.workspace }}"
+
+      - name: Install Java 17
+        run: |
+          sudo apt update
+          sudo apt install -y openjdk-17-jdk
+
+      - name: Install maven
+        run: |
+          sudo apt install maven
+          echo "$(mvn -version)"
+          
+      - name: Build
+        run: mvn build
+
+      - name: Test
+        run: mvn test
+      
+    
