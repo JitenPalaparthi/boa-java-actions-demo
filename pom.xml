@@ -54,7 +54,7 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<finalname>demo</finalname>
+		<finalName>abcddemo</finalName>
 	</build>
 	
 
