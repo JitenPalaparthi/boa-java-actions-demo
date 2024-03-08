@@ -25,7 +25,7 @@ jobs:
           echo "$(mvn -version)"
           
       - name: Build
-        run: mvn build
+        run: mvn -B package --file pom.xml
 
       - name: Test
         run: mvn test
